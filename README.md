@@ -6,10 +6,12 @@ Landing page do **Método E.P.I.C™** — gestão de tráfego pago com metodolo
 
 ```
 DuoBrasil/
-├── index.html      # Página principal
-├── css/styles.css  # Estilos
-├── js/main.js      # Formulário, FAQ e scroll
-├── assets/         # Logo e imagens
+├── index.html        # Página principal
+├── depoimentos.html  # Depoimentos e vídeo
+├── css/styles.css    # Estilos globais
+├── css/depoimentos.css
+├── js/main.js
+├── assets/           # Logo, fotos, vídeos
 ├── vercel.json     # Configuração de deploy
 └── README.md
 ```
