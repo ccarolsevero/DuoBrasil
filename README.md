@@ -42,7 +42,9 @@ vercel --prod
 
 ## Repositório
 
+Repositório: **https://github.com/ccarolsevero/DuoBrasil**
+
 ```bash
-git clone https://github.com/SEU_USUARIO/DuoBrasil.git
+git clone https://github.com/ccarolsevero/DuoBrasil.git
 cd DuoBrasil
 ```
