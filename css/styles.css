@@ -188,19 +188,46 @@ nav {
 /* ─── LOGOS BAR ─────────────────────────────────── */
 .logos-bar {
   border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-  padding: 1.75rem 6vw; text-align: center;
+  padding: 1.75rem 0 1.5rem; text-align: center;
 }
 .logos-bar-label {
   font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 1.25rem;
+  padding: 0 6vw;
 }
-.logos-row {
-  display: flex; align-items: center; justify-content: center;
-  gap: 3rem; flex-wrap: wrap;
+.logos-marquee {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.logos-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: logos-marquee 32s linear infinite;
+}
+.logos-marquee:hover .logos-marquee-track {
+  animation-play-state: paused;
+}
+.logos-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 0 2rem;
+  flex-shrink: 0;
 }
 .logo-name {
   font-size: 0.85rem; font-weight: 700; color: color-mix(in srgb, var(--gray-mid) 45%, var(--gray-light));
   letter-spacing: 0.05em; text-transform: uppercase;
+  white-space: nowrap;
+}
+@keyframes logos-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logos-marquee-track { animation: none; }
+  .logos-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
 }
 
 /* ─── SECTION COMMONS ───────────────────────────── */
@@ -233,32 +260,110 @@ nav {
 .epic-wrap .section-sub { color: var(--text-on-dark); }
 
 .epic-grid {
-  display: grid; grid-template-columns: repeat(4,1fr); gap: 1px;
-  background: var(--border-on-dark); border-radius: 16px; overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
 }
+
 .epic-card {
-  background: color-mix(in srgb, var(--dark) 92%, var(--gray-mid));
-  padding: 2.5rem 2rem; position: relative; overflow: hidden;
-  transition: background 0.3s;
+  container-type: size;
+  background: color-mix(in srgb, var(--dark) 88%, var(--gray-mid));
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  border-radius: 16px;
+  border: 1px solid var(--border-on-dark);
+  transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
 }
-.epic-card:hover { background: color-mix(in srgb, var(--green-dark) 22%, var(--dark)); }
+
+.epic-card:hover {
+  background: color-mix(in srgb, var(--green-dark) 14%, var(--dark));
+  border-color: color-mix(in srgb, var(--green-light) 35%, transparent);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--green) 12%, transparent);
+}
 
 .epic-letter {
-  font-size: 5rem; font-weight: 900; line-height: 1;
-  color: var(--green-glow); letter-spacing: -0.05em;
-  position: absolute; top: 1rem; right: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% - 55%), -50%) scale(0.92, 1.22);
+  transform-origin: center center;
+  display: block;
+  width: max-content;
+  text-align: center;
+  font-size: min(130cqw, 118cqh);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: 0;
+  color: color-mix(in srgb, var(--green-light) 82%, transparent);
+  -webkit-text-stroke: 2px color-mix(in srgb, var(--green) 70%, transparent);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  margin: 0;
+  opacity: 0;
+  transition:
+    opacity 0.55s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.epic-card h4 {
-  font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
-  letter-spacing: 0.18em; color: var(--green); margin-bottom: 0.75rem;
+
+.epic-letter.is-visible {
+  opacity: 1;
+  transform: translate(calc(-50% + 2%), -50%) scale(0.92, 1.22);
 }
-.epic-card h3 {
-  font-size: 1.1rem; font-weight: 800; color: #fff;
-  margin-bottom: 0.75rem; letter-spacing: -0.02em; line-height: 1.3;
+
+.epic-card-inner {
+  position: relative;
+  z-index: 1;
+  padding: 1.35rem 1.2rem;
+  background: color-mix(in srgb, var(--dark) 72%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid var(--border-on-dark);
+  border-left: 3px solid var(--green);
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.epic-card p {
-  font-size: 0.8rem; color: var(--text-on-dark);
-  font-weight: 400; line-height: 1.7;
+
+.epic-card-inner.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.epic-card-step {
+  display: inline-block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.65rem;
+}
+
+.epic-card-title {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 0.65rem;
+}
+
+.epic-card-inner p {
+  font-size: 0.82rem;
+  color: color-mix(in srgb, var(--off-white) 78%, var(--gray-mid));
+  font-weight: 400;
+  line-height: 1.7;
+  margin: 0;
 }
 
 /* ─── WHAT WE SOLVE ─────────────────────────────── */
@@ -466,18 +571,79 @@ nav {
   font-size: 0.85rem; color: var(--text-secondary); line-height: 1.8; font-weight: 400;
 }
 
-/* ─── CTA FINAL ─────────────────────────────────── */
+/* ─── CTA FINAL / CONTATO ───────────────────────── */
 .final-cta {
   background: var(--dark);
   text-align: center; padding: 6rem 6vw;
+}
+.section-tag--on-dark {
+  color: var(--green-light);
+  margin-bottom: 1rem;
 }
 .final-cta h2 {
   font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; color: #fff;
   letter-spacing: -0.05em; line-height: 1.1; margin-bottom: 1rem;
 }
 .final-cta h2 em { font-style: normal; color: var(--green); }
-.final-cta p { font-size: 0.9rem; color: var(--text-on-dark); font-weight: 400; margin-bottom: 2.5rem; }
-.final-cta .note { font-size: 0.72rem; margin-top: 1rem; }
+.final-cta > p:not(.note) {
+  font-size: 0.9rem; color: var(--text-on-dark); font-weight: 400;
+  margin-bottom: 2.5rem; max-width: 36rem; margin-left: auto; margin-right: auto;
+}
+.contact-channels {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 52rem;
+  margin: 0 auto 2.5rem;
+}
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 1.35rem 1rem;
+  border: 1px solid var(--border-on-dark);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--white) 4%, transparent);
+  color: #fff;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s;
+}
+.contact-link:hover {
+  border-color: var(--green);
+  background: color-mix(in srgb, var(--green) 12%, transparent);
+  color: var(--green-light);
+  transform: translateY(-2px);
+}
+.contact-link svg {
+  width: 1.65rem;
+  height: 1.65rem;
+  flex-shrink: 0;
+}
+.contact-link-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.contact-link-hint {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--text-on-dark);
+  line-height: 1.35;
+  word-break: break-word;
+  text-align: center;
+}
+.contact-link:hover .contact-link-hint { color: color-mix(in srgb, var(--green-light) 70%, var(--text-on-dark)); }
+.contact-cta-btn {
+  width: fit-content;
+  margin: 0 auto;
+}
+.final-cta .note {
+  font-size: 0.72rem;
+  margin-top: 1.5rem;
+  color: var(--text-on-dark);
+}
 
 /* ─── FOOTER ─────────────────────────────────────── */
 footer {
@@ -491,6 +657,32 @@ footer {
   align-items: center;
 }
 footer p { font-size: 0.72rem; color: var(--text-on-dark); font-weight: 400; }
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+}
+.footer-social a {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-on-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-social a:hover { color: var(--green-light); }
+
+@media (prefers-reduced-motion: reduce) {
+  .epic-letter,
+  .epic-card-inner {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .epic-letter.is-visible {
+    transform: translate(calc(-50% + 2%), -50%) scale(0.92, 1.22) !important;
+  }
+}
 
 /* ─── ANIMATIONS ─────────────────────────────────── */
 @keyframes fadeUp {
@@ -502,7 +694,9 @@ footer p { font-size: 0.72rem; color: var(--text-on-dark); font-weight: 400; }
 /* ─── RESPONSIVE ─────────────────────────────────── */
 @media (max-width: 900px) {
   .hero { padding-top: 7rem; }
-  .epic-grid { grid-template-columns: 1fr 1fr; }
+  .epic-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .epic-letter { font-size: min(128cqw, 116cqh); }
+  .epic-card { min-height: 340px; }
   .solve-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .about-img-wrap { max-width: 400px; margin: 0 auto 2.5rem; }
@@ -513,9 +707,13 @@ footer p { font-size: 0.72rem; color: var(--text-on-dark); font-weight: 400; }
   .urgency-inner { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
   .nav-link { display: none; }
   nav a.nav-cta { display: none; }
+  .contact-channels { grid-template-columns: repeat(2, 1fr); }
+  footer { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 600px) {
   .epic-grid { grid-template-columns: 1fr; }
+  .epic-letter { font-size: min(124cqw, 112cqh); }
+  .epic-card { min-height: 300px; }
   .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
-  .logos-row { gap: 1.5rem; }
+  .logos-marquee-group { gap: 2rem; }
 }

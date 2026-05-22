@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=22">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -40,33 +40,31 @@
           30 minutos online · Sem compromisso · Diagnóstico real do seu negócio
         </p>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <strong><span>+</span>15</strong>
-          <small>Anos de experiência</small>
-        </div>
-        <div class="stat">
-          <strong>180<span>+</span></strong>
-          <small>Clientes atendidos</small>
-        </div>
-        <div class="stat">
-          <strong><span>R$</span>28M</strong>
-          <small>Em verba gerenciada</small>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <div class="logos-bar">
   <p class="logos-bar-label">Empresas que confiam no Método E.P.I.C™</p>
-  <div class="logos-row">
-    <span class="logo-name">FQ4 Química</span>
-    <span class="logo-name">Multinacional</span>
-    <span class="logo-name">Clínica Med</span>
-    <span class="logo-name">E-commerce</span>
-    <span class="logo-name">Imobiliária</span>
-    <span class="logo-name">Educação</span>
+  <div class="logos-marquee">
+    <div class="logos-marquee-track">
+      <div class="logos-marquee-group">
+        <span class="logo-name">FQ4 Química</span>
+        <span class="logo-name">Multinacional</span>
+        <span class="logo-name">Clínica Med</span>
+        <span class="logo-name">E-commerce</span>
+        <span class="logo-name">Imobiliária</span>
+        <span class="logo-name">Educação</span>
+      </div>
+      <div class="logos-marquee-group" aria-hidden="true">
+        <span class="logo-name">FQ4 Química</span>
+        <span class="logo-name">Multinacional</span>
+        <span class="logo-name">Clínica Med</span>
+        <span class="logo-name">E-commerce</span>
+        <span class="logo-name">Imobiliária</span>
+        <span class="logo-name">Educação</span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -74,31 +72,39 @@
   <div class="section">
     <p class="section-tag">O método</p>
     <h2 class="section-title" style="color:#fff;">Método E.P.I.C™</h2>
-    <p class="section-sub">15 anos de Six Sigma, Lean e Kaizen traduzidos em gestão de tráfego pago. Porque anúncio não é arte abstrata — é investimento. E investimento se mede, controla e otimiza.</p>
+    <p class="section-sub">Quatro etapas conectadas — da estratégia ao controle — com a mesma disciplina de indústria aplicada ao tráfego pago. Cada fase tem objetivo, entrega e indicador.</p>
     <div class="epic-grid">
       <div class="epic-card">
         <div class="epic-letter" aria-hidden="true">E</div>
-        <h4>E — Estrutura</h4>
-        <h3>Estrutura de Campanha</h3>
-        <p>Cada campanha é construída com a mesma disciplina de um processo industrial. Sem improvisos, sem achismos.</p>
+        <div class="epic-card-inner">
+          <span class="epic-card-step">01</span>
+          <h4 class="epic-card-title">Estratégia</h4>
+          <p>Entendimento aprofundado do negócio e definição de metas claras para orientar cada investimento.</p>
+        </div>
       </div>
       <div class="epic-card">
         <div class="epic-letter" aria-hidden="true">P</div>
-        <h4>P — Performance</h4>
-        <h3>Performance com Dados</h3>
-        <p>Indicadores acompanhados diariamente. Cada métrica tem uma justificativa. Cada decisão tem embasamento.</p>
+        <div class="epic-card-inner">
+          <span class="epic-card-step">02</span>
+          <h4 class="epic-card-title">Planejamento</h4>
+          <p>Estruturação das campanhas com base na estratégia — público, canais, verba e cronograma definidos.</p>
+        </div>
       </div>
       <div class="epic-card">
         <div class="epic-letter" aria-hidden="true">I</div>
-        <h4>I — Inteligência</h4>
-        <h3>Inteligência Estratégica</h3>
-        <p>Análise F.C.A. (Fato, Causa, Ação) em cada semana. Você sabe o que aconteceu, por quê e o que fazemos a seguir.</p>
+        <div class="epic-card-inner">
+          <span class="epic-card-step">03</span>
+          <h4 class="epic-card-title">Implementação</h4>
+          <p>Lançamento do tráfego pago com execução alinhada ao planejamento aprovado.</p>
+        </div>
       </div>
       <div class="epic-card">
         <div class="epic-letter" aria-hidden="true">C</div>
-        <h4>C — Contínua</h4>
-        <h3>Melhoria Contínua</h3>
-        <p>Kaizen aplicado ao marketing. Toda semana existe uma otimização. Nenhum desperdício é aceitável.</p>
+        <div class="epic-card-inner">
+          <span class="epic-card-step">04</span>
+          <h4 class="epic-card-title">Controle</h4>
+          <p>Análise crítica dos indicadores definidos na estratégia, com implementação de ações de melhoria.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -313,12 +319,52 @@
 </div>
 
 <div class="final-cta" id="contato">
+  <p class="section-tag section-tag--on-dark">Contato</p>
   <h2>Resultados reais começam<br>com uma <em>conversa</em>.</h2>
-  <p>Agende agora seu diagnóstico gratuito de 30 minutos.</p>
-  <a href="mailto:contato@duobrasil.com.br" class="btn-primary" style="width: fit-content; margin: 0 auto;">
-    Vamos Conversar →
+  <p>Agende agora seu diagnóstico gratuito de 30 minutos ou fale direto pelos canais abaixo.</p>
+
+  <div class="contact-channels" aria-label="Canais de contato">
+    <a href="https://www.instagram.com/monique.rebessi" class="contact-link" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4.5"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+      <span class="contact-link-label">Instagram</span>
+      <span class="contact-link-hint">@monique.rebessi</span>
+    </a>
+    <a href="https://wa.me/5519993552609?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20DUO%20BRASIL." class="contact-link" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 11.5a8.5 8.5 0 0 1-12.2 7.6L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5z"/>
+        <path d="M9.5 10.5c.8 1.6 2.4 3.2 4.2 4"/>
+      </svg>
+      <span class="contact-link-label">WhatsApp</span>
+      <span class="contact-link-hint">(19) 99355-2609</span>
+    </a>
+    <a href="mailto:contato@duobrasil.com.br" class="contact-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M2 7l10 7 10-7"/>
+      </svg>
+      <span class="contact-link-label">E-mail</span>
+      <span class="contact-link-hint">contato@duobrasil.com.br</span>
+    </a>
+    <a href="https://www.linkedin.com/company/duo-brasil" class="contact-link" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="2"/>
+        <path d="M7 10v7M7 7v.01"/>
+        <path d="M11 17v-4c0-1.5 1-2.5 2.5-2.5S16 11.5 16 13v4"/>
+        <path d="M11 10v7"/>
+      </svg>
+      <span class="contact-link-label">LinkedIn</span>
+      <span class="contact-link-hint">DUO BRASIL</span>
+    </a>
+  </div>
+
+  <a href="https://wa.me/5519993552609?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20DUO%20BRASIL." class="btn-primary contact-cta-btn" target="_blank" rel="noopener noreferrer">
+    Agendar Diagnóstico →
   </a>
-  <p class="note" style="color: var(--text-on-dark); font-size:0.72rem; margin-top:1.5rem;">
+  <p class="note">
     30 minutos online · Sem compromisso · Com diagnóstico real do seu negócio
   </p>
 </div>
@@ -327,10 +373,15 @@
   <div class="footer-logo">
     <img src="assets/logo.svg" alt="DUO BRASIL" class="logo-img logo-img--footer" width="180" height="40">
   </div>
+  <div class="footer-social" aria-label="Redes sociais">
+    <a href="https://www.instagram.com/monique.rebessi" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+    <a href="https://wa.me/5519993552609" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WhatsApp</a>
+    <a href="mailto:contato@duobrasil.com.br" aria-label="E-mail">E-mail</a>
+    <a href="https://www.linkedin.com/company/duo-brasil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+  </div>
   <p>© 2026 DUO BRASIL · Monique Rebessi · Método E.P.I.C™</p>
-  <p><a href="mailto:contato@duobrasil.com.br" style="color: inherit; text-decoration: none;">contato@duobrasil.com.br</a></p>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>
