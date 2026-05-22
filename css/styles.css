@@ -210,17 +210,65 @@ body.nav-open {
 }
 
 /* ─── HERO ─────────────────────────────────────────── */
+.hero-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: min(85vh, 800px);
+  display: flex;
+  align-items: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-bg img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--off-white) 96%, transparent) 0%,
+    color-mix(in srgb, var(--off-white) 90%, transparent) 42%,
+    color-mix(in srgb, var(--off-white) 45%, transparent) 58%,
+    color-mix(in srgb, var(--dark) 25%, transparent) 100%
+  );
+}
+
 .hero {
-  min-height: auto;
-  padding: 9rem 6vw 4rem;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 9rem max(5vw, 1.25rem) 4.5rem max(4vw, 1.25rem);
   max-width: 1280px;
   margin: 0 auto;
   text-align: left;
 }
 
 .hero-left {
-  max-width: 640px;
-  margin-right: auto;
+  max-width: min(600px, 100%);
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
 }
 
 .hero-badge {
@@ -245,8 +293,10 @@ body.nav-open {
 .hero h1 {
   font-size: clamp(2rem, 3.5vw, 3.2rem);
   font-weight: 900; line-height: 1.1; letter-spacing: -0.04em;
-  color: var(--dark); margin-bottom: 0.5rem;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
 }
+
 .hero h1 .accent { color: var(--green); }
 
 .hero-method {
@@ -258,11 +308,20 @@ body.nav-open {
 }
 
 .hero-sub {
-  font-size: 0.95rem; font-weight: 400; color: var(--text-secondary);
-  max-width: 560px; line-height: 1.8; margin-bottom: 2rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  padding: 0;
+  background: none;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
-.hero-cta-group { display: flex; flex-direction: column; gap: 0.75rem; }
+.hero-cta-group { display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
 
 .btn-primary {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -277,9 +336,14 @@ body.nav-open {
 .btn-primary svg { width: 18px; height: 18px; flex-shrink: 0; }
 
 .hero-note {
-  font-size: 0.72rem; color: var(--text-secondary); font-weight: 500;
-  display: flex; align-items: center; gap: 6px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
+
 .hero-note svg { width: 14px; height: 14px; stroke: var(--green); flex-shrink: 0; }
 
 .hero-stats {
@@ -1368,7 +1432,35 @@ footer p { font-size: 0.72rem; color: var(--text-on-dark); font-weight: 400; }
 
 /* ─── RESPONSIVE ─────────────────────────────────── */
 @media (max-width: 900px) {
-  .hero { padding-top: 7rem; }
+  .hero-section {
+    min-height: auto;
+    align-items: stretch;
+  }
+
+  .hero-bg img {
+    object-position: 60% 20%;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--off-white) 94%, transparent) 0%,
+      color-mix(in srgb, var(--off-white) 88%, transparent) 55%,
+      color-mix(in srgb, var(--dark) 20%, transparent) 100%
+    );
+  }
+
+  .hero {
+    padding: 7rem 6vw 3.5rem;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-sub {
+    max-width: 100%;
+  }
   .epic-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   .epic-letter { font-size: min(128cqw, 116cqh); }
   .epic-card { min-height: 340px; }
