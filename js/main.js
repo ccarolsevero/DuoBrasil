@@ -1,3 +1,32 @@
+function submitForm() {
+  const fields = ['f-nome', 'f-tel', 'f-email'];
+  let ok = true;
+
+  fields.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) {
+      el.style.borderColor = '#dc3545';
+      el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
+      ok = false;
+    }
+  });
+
+  if (!ok) return;
+
+  const btn = document.getElementById('submit-btn');
+  const label = btn.querySelector('.form-submit-label');
+  if (label) {
+    label.dataset.default = label.textContent;
+    label.textContent = 'Enviando...';
+  }
+  btn.disabled = true;
+
+  setTimeout(() => {
+    document.getElementById('form-fields').style.display = 'none';
+    document.getElementById('success-state').style.display = 'block';
+  }, 900);
+}
+
 function toggleFaq(btn) {
   const answer = btn.nextElementSibling;
   const isOpen = btn.classList.contains('open');

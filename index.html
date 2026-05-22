@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=22">
+  <link rel="stylesheet" href="css/styles.css?v=28">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -18,7 +18,7 @@
     <img src="assets/logo.svg" alt="DUO BRASIL — Pense. Estruture. Cresça." class="logo-img" width="200" height="44">
   </a>
   <div class="nav-right">
-    <a href="depoimentos.html" class="nav-link">Depoimentos</a>
+    <a href="cases.html" class="nav-link">Cases</a>
     <a href="#contato" class="nav-cta">Diagnóstico Gratuito →</a>
   </div>
 </nav>
@@ -236,33 +236,71 @@
   </div>
 </div>
 
-<div class="fq4-section">
+<section class="cases-highlight" aria-labelledby="cases-highlight-title">
   <div class="section">
-    <p class="section-tag">Resultados reais</p>
-    <h2 class="section-title" style="color:#fff; margin-bottom: 1rem;">Clientes que crescem<br>com a DUO BRASIL</h2>
-    <p class="section-sub" style="color: var(--text-on-dark); margin-bottom: 2rem;">Depoimentos em texto, vídeo e números de quem confia no Método E.P.I.C™.</p>
-    <div class="fq4-card">
-      <div class="fq4-quote">
-        <blockquote>"A experiência da Monique de anos na parte estratégica fez <span>todo o diferencial</span> para a gente fechar com ela."</blockquote>
-        <div class="fq4-author">
-          <div class="fq4-avatar" aria-hidden="true">LM</div>
-          <div>
-            <div class="fq4-author-name">Lídia — Gerente de Marketing</div>
-            <div class="fq4-author-role">FQ4 Indústria de Produtos Químicos | Multinacional</div>
-          </div>
+    <header class="cases-highlight-intro">
+      <div>
+        <p class="section-tag">Cases</p>
+        <h2 id="cases-highlight-title" class="section-title cases-highlight-heading">Resultados que viram<br>cases reais</h2>
+        <p class="cases-highlight-lead">Um destaque do portfólio — com números, depoimento e link para o case completo.</p>
+      </div>
+      <a href="cases.html" class="btn-primary cases-highlight-intro-cta">Ver todos os cases →</a>
+    </header>
+
+    <article class="cases-highlight-card">
+      <div class="cases-highlight-card-head">
+        <span class="cases-highlight-segment">Indústria química · B2B</span>
+        <h3>FQ4 Indústria de Produtos Químicos</h3>
+        <p>Multinacional · Gerência de Marketing</p>
+      </div>
+
+      <div class="cases-highlight-metrics" aria-label="Resultados do case">
+        <div class="cases-highlight-metric">
+          <strong>+300%</strong>
+          <span>Crescimento de leads</span>
+        </div>
+        <div class="cases-highlight-metric">
+          <strong>Google</strong>
+          <span>+ Meta Ads</span>
+        </div>
+        <div class="cases-highlight-metric">
+          <strong>Diário</strong>
+          <span>Controle de KPIs</span>
         </div>
       </div>
-      <div class="fq4-badge-box">
-        <strong>+300%</strong>
-        <span>Crescimento de leads</span>
-        <p>Google Ads &amp; Meta Ads</p>
-      </div>
+
+      <blockquote class="cases-highlight-quote">
+        "A experiência da Monique de anos na parte estratégica fez <span>todo o diferencial</span> para a gente fechar com ela."
+      </blockquote>
+
+      <footer class="cases-highlight-card-foot">
+        <div class="cases-highlight-author">
+          <span class="cases-highlight-avatar" aria-hidden="true">LM</span>
+          <div>
+            <span class="cases-highlight-author-name">Lídia — Gerente de Marketing</span>
+            <span class="cases-highlight-author-role">FQ4 · Multinacional</span>
+          </div>
+        </div>
+        <a href="cases.html#case-fq4" class="cases-highlight-card-link">Ler case completo →</a>
+      </footer>
+    </article>
+
+    <div class="cases-highlight-more">
+      <a href="cases.html" class="cases-highlight-chip cases-highlight-chip--video">
+        <span class="cases-highlight-chip-label">Em vídeo</span>
+        <span class="cases-highlight-chip-text">Depoimento na prática</span>
+      </a>
+      <a href="cases.html#case-clinica" class="cases-highlight-chip">
+        <span class="cases-highlight-chip-label">Saúde</span>
+        <span class="cases-highlight-chip-text"><strong>+180%</strong> conversas no WhatsApp</span>
+      </a>
+      <a href="cases.html#case-ecommerce" class="cases-highlight-chip">
+        <span class="cases-highlight-chip-label">E-commerce</span>
+        <span class="cases-highlight-chip-text"><strong>4,2×</strong> ROAS em 90 dias</span>
+      </a>
     </div>
-    <a href="depoimentos.html" class="btn-primary" style="margin-top: 2rem; width: fit-content;">
-      Ver depoimentos e vídeo →
-    </a>
   </div>
-</div>
+</section>
 
 <div class="urgency-section">
   <div class="urgency-inner">
@@ -319,54 +357,128 @@
 </div>
 
 <div class="final-cta" id="contato">
-  <p class="section-tag section-tag--on-dark">Contato</p>
-  <h2>Resultados reais começam<br>com uma <em>conversa</em>.</h2>
-  <p>Agende agora seu diagnóstico gratuito de 30 minutos ou fale direto pelos canais abaixo.</p>
+  <div class="contact-inner">
+    <header class="contact-intro">
+      <p class="section-tag section-tag--on-dark">Contato</p>
+      <h2>Resultados reais começam<br>com uma <em>conversa</em>.</h2>
+      <p>Agende seu diagnóstico gratuito de 30 minutos pelo formulário ou fale direto pelos canais ao lado.</p>
+    </header>
 
-  <div class="contact-channels" aria-label="Canais de contato">
-    <a href="https://www.instagram.com/monique.rebessi" class="contact-link" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="2" y="2" width="20" height="20" rx="5"/>
-        <circle cx="12" cy="12" r="4.5"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-      </svg>
-      <span class="contact-link-label">Instagram</span>
-      <span class="contact-link-hint">@monique.rebessi</span>
-    </a>
-    <a href="https://wa.me/5519993552609?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20DUO%20BRASIL." class="contact-link" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M21 11.5a8.5 8.5 0 0 1-12.2 7.6L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5z"/>
-        <path d="M9.5 10.5c.8 1.6 2.4 3.2 4.2 4"/>
-      </svg>
-      <span class="contact-link-label">WhatsApp</span>
-      <span class="contact-link-hint">(19) 99355-2609</span>
-    </a>
-    <a href="mailto:contato@duobrasil.com.br" class="contact-link">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="2" y="4" width="20" height="16" rx="2"/>
-        <path d="M2 7l10 7 10-7"/>
-      </svg>
-      <span class="contact-link-label">E-mail</span>
-      <span class="contact-link-hint">contato@duobrasil.com.br</span>
-    </a>
-    <a href="https://www.linkedin.com/company/duo-brasil" class="contact-link" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <rect x="2" y="2" width="20" height="20" rx="2"/>
-        <path d="M7 10v7M7 7v.01"/>
-        <path d="M11 17v-4c0-1.5 1-2.5 2.5-2.5S16 11.5 16 13v4"/>
-        <path d="M11 10v7"/>
-      </svg>
-      <span class="contact-link-label">LinkedIn</span>
-      <span class="contact-link-hint">DUO BRASIL</span>
-    </a>
+    <div class="contact-layout">
+      <div class="form-card contact-form-card">
+        <div class="form-card-header">
+          <span class="form-card-badge">Diagnóstico gratuito</span>
+          <h3>Preencha em menos de 1 minuto</h3>
+          <p class="form-card-lead">Retorno em até 1 dia útil para agendar sua conversa estratégica.</p>
+        </div>
+        <div class="form-card-body">
+          <div id="form-fields" class="form-fields">
+            <div class="form-group">
+              <label for="f-nome">Nome completo</label>
+              <input type="text" placeholder="Como podemos te chamar?" id="f-nome" name="nome" autocomplete="name" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-tel">WhatsApp</label>
+                <input type="tel" placeholder="(19) 99999-9999" id="f-tel" name="tel" autocomplete="tel" required>
+              </div>
+              <div class="form-group">
+                <label for="f-email">E-mail</label>
+                <input type="email" placeholder="seu@email.com" id="f-email" name="email" autocomplete="email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="f-empresa">Empresa / segmento</label>
+              <input type="text" placeholder="Ex: clínica, indústria, e-commerce" id="f-empresa" name="empresa">
+            </div>
+            <div class="form-group form-group--select">
+              <label for="f-budget">Investimento mensal em anúncios</label>
+              <div class="form-select-wrap">
+                <select id="f-budget" name="budget">
+                  <option value="">Selecione uma faixa</option>
+                  <option>Ainda não invisto</option>
+                  <option>Menos de R$ 2.000</option>
+                  <option>R$ 2.000 – R$ 10.000</option>
+                  <option>R$ 10.000 – R$ 30.000</option>
+                  <option>Acima de R$ 30.000</option>
+                </select>
+                <svg class="form-select-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </div>
+            <div class="form-submit">
+              <button type="button" class="btn-primary form-submit-btn" onclick="submitForm()" id="submit-btn">
+                <span class="form-submit-label">Solicitar diagnóstico gratuito</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+            <p class="form-guarantee">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              Dados protegidos · Sem spam · 30 min online
+            </p>
+          </div>
+          <div class="success-state" id="success-state">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h4>Recebemos seu pedido</h4>
+            <p>Retorno em até <strong>1 dia útil</strong> para agendar seu diagnóstico.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="contact-side" aria-label="Outros canais de contato">
+        <p class="contact-side-title">Prefere falar direto?</p>
+        <div class="contact-channels contact-channels--stack">
+          <a href="https://www.instagram.com/monique.rebessi" class="contact-link" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4.5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <span class="contact-link-text">
+              <span class="contact-link-label">Instagram</span>
+              <span class="contact-link-hint">@monique.rebessi</span>
+            </span>
+          </a>
+          <a href="https://wa.me/5519993552609?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20DUO%20BRASIL." class="contact-link" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 11.5a8.5 8.5 0 0 1-12.2 7.6L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5z"/>
+              <path d="M9.5 10.5c.8 1.6 2.4 3.2 4.2 4"/>
+            </svg>
+            <span class="contact-link-text">
+              <span class="contact-link-label">WhatsApp</span>
+              <span class="contact-link-hint">(19) 99355-2609</span>
+            </span>
+          </a>
+          <a href="mailto:contato@duobrasil.com.br" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M2 7l10 7 10-7"/>
+            </svg>
+            <span class="contact-link-text">
+              <span class="contact-link-label">E-mail</span>
+              <span class="contact-link-hint">contato@duobrasil.com.br</span>
+            </span>
+          </a>
+          <a href="https://www.linkedin.com/company/duo-brasil" class="contact-link" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="2"/>
+              <path d="M7 10v7M7 7v.01"/>
+              <path d="M11 17v-4c0-1.5 1-2.5 2.5-2.5S16 11.5 16 13v4"/>
+              <path d="M11 10v7"/>
+            </svg>
+            <span class="contact-link-text">
+              <span class="contact-link-label">LinkedIn</span>
+              <span class="contact-link-hint">DUO BRASIL</span>
+            </span>
+          </a>
+        </div>
+        <p class="contact-side-note">
+          30 minutos online · Sem compromisso · Com diagnóstico real do seu negócio
+        </p>
+      </aside>
+    </div>
   </div>
-
-  <a href="https://wa.me/5519993552609?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20gratuito%20com%20a%20DUO%20BRASIL." class="btn-primary contact-cta-btn" target="_blank" rel="noopener noreferrer">
-    Agendar Diagnóstico →
-  </a>
-  <p class="note">
-    30 minutos online · Sem compromisso · Com diagnóstico real do seu negócio
-  </p>
 </div>
 
 <footer>
@@ -382,6 +494,6 @@
   <p>© 2026 DUO BRASIL · Monique Rebessi · Método E.P.I.C™</p>
 </footer>
 
-<script src="js/main.js?v=5"></script>
+<script src="js/main.js?v=7"></script>
 </body>
 </html>
