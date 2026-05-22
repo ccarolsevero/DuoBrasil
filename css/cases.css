@@ -87,6 +87,18 @@
   text-align: center;
 }
 
+/* ─── Galeria de feedbacks ──────────────────────── */
+.feedbacks-gallery-section {
+  padding: 5rem 0;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.feedbacks-gallery-section .section {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 /* ─── Lista de cases ────────────────────────────── */
 .cases-list-section {
   padding: 5rem 0;
