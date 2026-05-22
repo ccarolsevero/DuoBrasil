@@ -7,10 +7,10 @@ Landing page do **Método E.P.I.C™** — gestão de tráfego pago com metodolo
 ```
 DuoBrasil/
 ├── index.html        # Página principal
-├── cases.html        # Cases de sucesso e vídeo
-├── depoimentos.html  # Redireciona para cases.html
+├── depoimentos.html  # Depoimentos em vídeo e feedbacks
+├── cases.html        # Redireciona para depoimentos.html
 ├── css/styles.css    # Estilos globais
-├── css/cases.css     # Página de cases
+├── css/cases.css     # Estilos da página de depoimentos
 ├── js/main.js
 ├── assets/           # Logo, fotos, vídeos
 ├── vercel.json     # Configuração de deploy
