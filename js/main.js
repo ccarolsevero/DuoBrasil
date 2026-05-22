@@ -42,11 +42,75 @@ function toggleFaq(btn) {
   }
 }
 
-document.querySelectorAll('a[href="#contato"]').forEach((a) => {
-  a.addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('contato').scrollIntoView({ behavior: 'smooth', block: 'center' });
+function initNavMenu() {
+  const nav = document.querySelector('.site-nav');
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  const overlay = document.getElementById('nav-overlay');
+
+  if (!nav || !toggle || !menu) return;
+
+  function closeMenu() {
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menu');
+    document.body.classList.remove('nav-open');
+    if (overlay) overlay.hidden = true;
+  }
+
+  function openMenu() {
+    nav.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Fechar menu');
+    document.body.classList.add('nav-open');
+    if (overlay) overlay.hidden = false;
+  }
+
+  toggle.addEventListener('click', () => {
+    if (nav.classList.contains('is-open')) closeMenu();
+    else openMenu();
   });
+
+  if (overlay) overlay.addEventListener('click', closeMenu);
+
+  menu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (window.matchMedia('(max-width: 900px)').matches) closeMenu();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.matchMedia('(min-width: 901px)').matches) closeMenu();
+  });
+}
+
+function scrollToContato(e) {
+  const href = e.currentTarget.getAttribute('href') || '';
+  const onHome = document.getElementById('contato');
+
+  if (href === '#contato' && onHome) {
+    e.preventDefault();
+    onHome.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      document.querySelector('.site-nav')?.classList.remove('is-open');
+      document.body.classList.remove('nav-open');
+      const overlay = document.getElementById('nav-overlay');
+      if (overlay) overlay.hidden = true;
+      const toggle = document.querySelector('.nav-toggle');
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Abrir menu');
+      }
+    }
+  }
+}
+
+document.querySelectorAll('a[href="#contato"], a[href*="index.html#contato"]').forEach((a) => {
+  a.addEventListener('click', scrollToContato);
 });
 
 function initEpicReveal() {
@@ -122,8 +186,13 @@ function initEpicReveal() {
   }
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initEpicReveal);
-} else {
+function initPage() {
+  initNavMenu();
   initEpicReveal();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPage);
+} else {
+  initPage();
 }
