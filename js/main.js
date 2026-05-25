@@ -13,6 +13,10 @@ function submitForm() {
 
   if (!ok) return;
 
+  if (typeof window.trackDUOEvent === 'function') {
+    window.trackDUOEvent('form_submit', { form_name: 'diagnostico_gratuito' });
+  }
+
   const btn = document.getElementById('submit-btn');
   const label = btn.querySelector('.form-submit-label');
   if (label) {
