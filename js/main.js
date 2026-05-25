@@ -1,3 +1,24 @@
+const DUO_WHATSAPP = '5519993552609';
+
+function buildFormWhatsAppMessage() {
+  const nome = document.getElementById('f-nome')?.value.trim() || '';
+  const tel = document.getElementById('f-tel')?.value.trim() || '';
+  const email = document.getElementById('f-email')?.value.trim() || '';
+  const empresa = document.getElementById('f-empresa')?.value.trim() || '';
+
+  const lines = [
+    'Olá Monique, quero agendar meu diagnóstico gratuito.',
+    '',
+    `Nome: ${nome}`,
+    `WhatsApp: ${tel}`,
+    `E-mail: ${email}`,
+  ];
+
+  if (empresa) lines.push(`Empresa / segmento: ${empresa}`);
+
+  return lines.join('\n');
+}
+
 function submitForm() {
   const fields = ['f-nome', 'f-tel', 'f-email'];
   let ok = true;
@@ -21,14 +42,20 @@ function submitForm() {
   const label = btn.querySelector('.form-submit-label');
   if (label) {
     label.dataset.default = label.textContent;
-    label.textContent = 'Enviando...';
+    label.textContent = 'Abrindo WhatsApp...';
   }
   btn.disabled = true;
+
+  const message = buildFormWhatsAppMessage();
+  const url = `https://wa.me/${DUO_WHATSAPP}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank', 'noopener,noreferrer');
 
   setTimeout(() => {
     document.getElementById('form-fields').style.display = 'none';
     document.getElementById('success-state').style.display = 'block';
-  }, 900);
+    btn.disabled = false;
+    if (label && label.dataset.default) label.textContent = label.dataset.default;
+  }, 400);
 }
 
 function toggleFaq(btn) {
