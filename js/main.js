@@ -188,9 +188,60 @@ function initEpicReveal() {
   }
 }
 
+function initCarousels() {
+  document.querySelectorAll('[data-carousel]').forEach((root) => {
+    const track = root.querySelector('[data-carousel-track]');
+    const prev = root.querySelector('.carousel-nav--prev');
+    const next = root.querySelector('.carousel-nav--next');
+    if (!track || !prev || !next) return;
+
+    const scrollAmount = () => {
+      const item = track.querySelector('.feedback-shot, .case-video-card');
+      if (!item) return Math.round(track.clientWidth * 0.85);
+      const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+      return item.getBoundingClientRect().width + gap;
+    };
+
+    const updateNav = () => {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const hasOverflow = maxScroll > 4;
+      root.classList.toggle('is-scrollable', hasOverflow);
+      prev.disabled = track.scrollLeft <= 4;
+      next.disabled = track.scrollLeft >= maxScroll - 4;
+    };
+
+    const scrollByDir = (dir) => {
+      track.scrollBy({ left: dir * scrollAmount(), behavior: 'smooth' });
+    };
+
+    prev.addEventListener('click', () => scrollByDir(-1));
+    next.addEventListener('click', () => scrollByDir(1));
+
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        scrollByDir(-1);
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        scrollByDir(1);
+      }
+    });
+
+    track.addEventListener('scroll', updateNav, { passive: true });
+    window.addEventListener('resize', updateNav);
+    if ('ResizeObserver' in window) {
+      const ro = new ResizeObserver(updateNav);
+      ro.observe(track);
+    }
+    updateNav();
+  });
+}
+
 function initPage() {
   initNavMenu();
   initEpicReveal();
+  initCarousels();
 }
 
 if (document.readyState === 'loading') {
