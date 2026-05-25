@@ -13,13 +13,26 @@
   <meta property="og:image" content="https://agenciaduobrasil.com/assets/fotohero.webp">
   <meta property="og:locale" content="pt_BR">
   <link rel="preload" href="assets/fonts/montserrat-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fotohero-mobile.webp" as="image" type="image/webp" media="(max-width: 600px)" fetchpriority="high">
-  <link rel="preload" href="assets/fotohero-tablet.webp" as="image" type="image/webp" media="(min-width: 601px) and (max-width: 900px)" fetchpriority="high">
-  <link rel="preload" href="assets/fotohero.webp" as="image" type="image/webp" media="(min-width: 901px)" fetchpriority="high">
-  <link rel="stylesheet" href="css/fonts.css?v=1">
-  <link rel="stylesheet" href="css/critical.css?v=1">
-  <link rel="preload" href="css/styles.css?v=79" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/styles.css?v=79"></noscript>
+  <link rel="preload" href="assets/fotohero-640.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="css/critical.css?v=5">
+  <link rel="preload" href="css/styles.css?v=83" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/styles.css?v=83"></noscript>
+  <script>
+    (function (w) {
+      w.loadCSS = function (href) {
+        var link = w.document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        w.document.head.appendChild(link);
+      };
+      var preload = w.document.querySelector('link[rel="preload"][as="style"]');
+      if (preload) {
+        preload.addEventListener('load', function () {
+          preload.rel = 'stylesheet';
+        });
+      }
+    })(window);
+  </script>
   <link rel="icon" href="assets/favicon.svg?v=3" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/favicon.svg?v=3">
 </head>
@@ -51,12 +64,15 @@
 
 <section class="hero-section" aria-label="Apresentação">
   <div class="hero-bg" aria-hidden="true">
-    <picture>
-      <source media="(max-width: 600px)" srcset="assets/fotohero-mobile.webp" type="image/webp" width="960" height="540">
-      <source media="(max-width: 900px)" srcset="assets/fotohero-tablet.webp" type="image/webp" width="1280" height="720">
-      <source srcset="assets/fotohero.webp" type="image/webp" width="1600" height="900">
-      <img src="assets/fotohero.jpeg" alt="Monique Rebessi fundadora DUO BRASIL gestão de tráfego pago" width="1600" height="900" fetchpriority="high" decoding="sync">
-    </picture>
+    <img
+      src="assets/fotohero.png"
+      srcset="assets/fotohero-640.webp 640w, assets/fotohero-mobile.webp 960w, assets/fotohero-tablet.webp 1280w, assets/fotohero.webp 1672w"
+      sizes="100vw"
+      alt="Método E.P.I.C™ DUO BRASIL agência de tráfego pago profissional"
+      width="1672"
+      height="941"
+      fetchpriority="high"
+      decoding="sync">
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero">
@@ -83,26 +99,26 @@
   <div class="logos-marquee">
     <div class="logos-marquee-track">
       <div class="logos-marquee-group">
-        <div class="logo-item"><img src="assets/logosCLientes/FQ4.png" alt="cliente DUO BRASIL FQ4 gestão de tráfego pago" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/IMPERIUM.png" alt="cliente DUO BRASIL Imperium gestão de tráfego pago" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/MAISON.png" alt="cliente DUO BRASIL Maison gestão de tráfego pago" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/SCALECCI.png" alt="cliente DUO BRASIL Scalecci gestão de tráfego pago" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/SLOW.png" alt="cliente DUO BRASIL Slow gestão de tráfego pago" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/SUBTIL.png" alt="cliente DUO BRASIL Subtil gestão de tráfego pago" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/UP.png" alt="cliente DUO BRASIL UP gestão de tráfego pago" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/VIA.png" alt="cliente DUO BRASIL Via gestão de tráfego pago" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/WEB.png" alt="cliente DUO BRASIL Web gestão de tráfego pago" loading="lazy" decoding="async"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/FQ4.webp" alt="cliente DUO BRASIL FQ4 gestão de tráfego pago" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/IMPERIUM.webp" alt="cliente DUO BRASIL Imperium gestão de tráfego pago" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/MAISON.webp" alt="cliente DUO BRASIL Maison gestão de tráfego pago" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/SCALECCI.webp" alt="cliente DUO BRASIL Scalecci gestão de tráfego pago" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/SLOW.webp" alt="cliente DUO BRASIL Slow gestão de tráfego pago" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/SUBTIL.webp" alt="cliente DUO BRASIL Subtil gestão de tráfego pago" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/UP.webp" alt="cliente DUO BRASIL UP gestão de tráfego pago" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/VIA.webp" alt="cliente DUO BRASIL Via gestão de tráfego pago" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/WEB.webp" alt="cliente DUO BRASIL Web gestão de tráfego pago" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
       </div>
       <div class="logos-marquee-group" aria-hidden="true">
-        <div class="logo-item"><img src="assets/logosCLientes/FQ4.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/IMPERIUM.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/MAISON.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/SCALECCI.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/SLOW.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/SUBTIL.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/UP.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/VIA.png" alt="" loading="lazy" decoding="async"></div>
-        <div class="logo-item"><img src="assets/logosCLientes/WEB.png" alt="" loading="lazy" decoding="async"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/FQ4.webp" alt="" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/IMPERIUM.webp" alt="" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/MAISON.webp" alt="" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/SCALECCI.webp" alt="" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/SLOW.webp" alt="" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/SUBTIL.webp" alt="" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/UP.webp" alt="" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/VIA.webp" alt="" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
+        <div class="logo-item"><img src="assets/logosCLientes/WEB.webp" alt="" width="320" height="400" loading="lazy" decoding="async" fetchpriority="low"></div>
       </div>
     </div>
   </div>
@@ -249,7 +265,7 @@
         <div class="about-img-frame">
           <picture>
             <source srcset="assets/foto2.webp" type="image/webp">
-            <img src="assets/foto2.jpeg" alt="Monique Rebessi estrategista digital 15 anos indústria japonesa" class="about-img" width="480" height="600" loading="lazy" decoding="async">
+            <img src="assets/foto2.png" alt="Monique Rebessi estrategista digital 15 anos indústria japonesa" class="about-img" width="1254" height="1254" loading="lazy" decoding="async">
           </picture>
           <div class="about-img-bg" aria-hidden="true"></div>
         </div>

@@ -31,6 +31,17 @@
 }
 
 html { scroll-behavior: smooth; }
+
+.foryou-bg,
+.epic-wrap,
+.client-feedbacks,
+.urgency-section,
+.final-cta,
+.servicos-nicho {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 480px;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   background: var(--off-white);
@@ -251,20 +262,24 @@ body.nav-open {
   inset: 0;
   z-index: 1;
   pointer-events: none;
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--off-white) 90%, transparent) 0%,
+    color-mix(in srgb, var(--off-white) 65%, transparent) 48%,
+    color-mix(in srgb, var(--off-white) 30%, transparent) 62%,
+    color-mix(in srgb, var(--off-white) 12%, transparent) 74%,
+    transparent 78%
+  );
 }
 
 @media (min-width: 901px) {
   .hero-section {
-    /* 16:9 da fotohero (1600×900) — evita corte vertical com cover */
+    /* 16:9 da fotohero (1672×941) — evita corte vertical com cover */
     min-height: max(520px, min(calc(100dvh - var(--nav-height)), 56.25vw));
   }
 
-  .hero-overlay {
-    display: none;
-  }
-
   .hero-left {
-    background: var(--off-white);
+    background: transparent;
     padding: 2rem 2.25rem;
     max-width: min(580px, 48vw);
   }
@@ -418,11 +433,21 @@ body.nav-open {
 .logo-item img {
   display: block;
   width: auto;
-  height: clamp(148px, 22vw, 196px);
-  max-width: none;
-  max-height: none;
+  height: clamp(96px, 22vw, 140px);
+  max-width: 160px;
   object-fit: contain;
   object-position: center;
+}
+
+@media (min-width: 901px) {
+  .logo-item {
+    width: auto;
+    height: auto;
+  }
+  .logo-item img {
+    height: clamp(148px, 22vw, 196px);
+    max-width: none;
+  }
 }
 
 @keyframes logos-marquee {
@@ -1546,12 +1571,20 @@ footer p,
   }
 
   .hero-overlay {
-    background: linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--off-white) 94%, transparent) 0%,
-      color-mix(in srgb, var(--off-white) 88%, transparent) 55%,
-      color-mix(in srgb, var(--dark) 20%, transparent) 100%
-    );
+    background:
+      linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--off-white) 94%, transparent) 0%,
+        color-mix(in srgb, var(--off-white) 88%, transparent) 55%,
+        color-mix(in srgb, var(--dark) 20%, transparent) 100%
+      ),
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--off-white) 92%, transparent) 0%,
+        color-mix(in srgb, var(--off-white) 60%, transparent) 52%,
+        color-mix(in srgb, var(--off-white) 25%, transparent) 66%,
+        transparent 78%
+      );
   }
 
   .hero {
@@ -1739,7 +1772,6 @@ footer p,
   .logos-bar { padding: 0.65rem 0 0.75rem; }
   .logos-bar-label { margin-bottom: 0.35rem; }
   .logos-marquee-group { gap: 1.1rem; padding: 0 0.65rem; }
-  .logo-item img { height: clamp(96px, 24vw, 124px); }
   .logos-marquee-track { animation-duration: 16s; }
   .cases-highlight-card { padding: 1.5rem 1.25rem; }
   .cases-highlight-card-foot { flex-direction: column; align-items: flex-start; }
