@@ -26,6 +26,7 @@
 
   --nav-bg:      color-mix(in srgb, var(--dark) 97%, transparent);
   --nav-border:  var(--border-on-dark);
+  --nav-height:  calc(2rem + 44px + 1px);
   --shadow-soft: 0 20px 56px color-mix(in srgb, var(--dark) 10%, transparent);
 }
 
@@ -214,7 +215,8 @@ body.nav-open {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  min-height: min(85vh, 800px);
+  margin-top: var(--nav-height);
+  min-height: max(560px, calc(100dvh - var(--nav-height)));
   display: flex;
   align-items: center;
 }
@@ -224,6 +226,7 @@ body.nav-open {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .hero-bg img {
@@ -232,8 +235,10 @@ body.nav-open {
   display: block;
   width: 100%;
   height: 100%;
+  min-width: 100%;
+  min-height: 100%;
   object-fit: cover;
-  object-position: 72% center;
+  object-position: 65% center;
 }
 
 .hero-overlay {
@@ -244,9 +249,9 @@ body.nav-open {
   background: linear-gradient(
     90deg,
     color-mix(in srgb, var(--off-white) 96%, transparent) 0%,
-    color-mix(in srgb, var(--off-white) 90%, transparent) 42%,
-    color-mix(in srgb, var(--off-white) 45%, transparent) 58%,
-    color-mix(in srgb, var(--dark) 25%, transparent) 100%
+    color-mix(in srgb, var(--off-white) 84%, transparent) 34%,
+    color-mix(in srgb, var(--off-white) 45%, transparent) 52%,
+    transparent 68%
   );
 }
 
@@ -254,7 +259,7 @@ body.nav-open {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 9rem max(5vw, 1.25rem) 4.5rem max(4vw, 1.25rem);
+  padding: 2.5rem max(5vw, 1.25rem) 4rem max(4vw, 1.25rem);
   max-width: 1280px;
   margin: 0 auto;
   text-align: left;
@@ -373,9 +378,7 @@ body.nav-open {
   display: flex;
   width: max-content;
   animation: logos-marquee 42s linear infinite;
-}
-.logos-marquee:hover .logos-marquee-track {
-  animation-play-state: paused;
+  will-change: transform;
 }
 .logos-marquee-group {
   display: flex;
@@ -1506,7 +1509,7 @@ footer p,
   }
 
   .hero-bg img {
-    object-position: 60% 20%;
+    object-position: 88% center;
   }
 
   .hero-overlay {
@@ -1519,7 +1522,7 @@ footer p,
   }
 
   .hero {
-    padding: 7rem 6vw 3.5rem;
+    padding: 2rem 6vw 3rem;
   }
 
   .hero-left {
